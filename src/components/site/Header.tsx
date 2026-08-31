@@ -7,7 +7,7 @@ import { useState } from "react";
 import { couple, navItems } from "@/data/couple";
 import { cn } from "@/lib/utils";
 import { useAdmin } from "@/components/admin/AdminProvider";
-import { Monogram } from "./Monogram";
+import { SecretAdminHotspot } from "@/components/admin/SecretAdminHotspot";
 import { DesktopNav } from "./DesktopNav";
 
 export function Header() {
@@ -25,17 +25,19 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex max-w-site items-center justify-between gap-4 px-4 py-3 md:px-8">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <Monogram size="sm" light={isLive} />
-          <span
-            className={cn(
-              "text-xs font-medium uppercase tracking-[0.28em]",
-              isLive ? "text-cream-soft" : "text-ink",
-            )}
-          >
-            {couple.names}
-          </span>
-        </Link>
+        <div className="flex items-center gap-3">
+          <SecretAdminHotspot light={isLive} />
+          <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+            <span
+              className={cn(
+                "text-xs font-medium uppercase tracking-[0.28em]",
+                isLive ? "text-cream-soft" : "text-ink",
+              )}
+            >
+              {couple.names}
+            </span>
+          </Link>
+        </div>
         <DesktopNav light={isLive} />
         <button
           type="button"

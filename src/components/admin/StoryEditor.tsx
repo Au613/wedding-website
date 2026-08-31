@@ -17,7 +17,7 @@ function blankMilestone(): StoryMilestone {
 }
 
 export function StoryEditor() {
-  const { storyOpen, setStoryOpen, needsPin, unlockAdmin, milestones, saveStory } = useAdmin();
+  const { storyOpen, setStoryOpen, setOpen, needsPin, unlockAdmin, milestones, saveStory } = useAdmin();
   const [pin, setPin] = useState("");
   const [pinError, setPinError] = useState(false);
   const [draft, setDraft] = useState<StoryMilestone[]>(milestones);
@@ -121,7 +121,7 @@ export function StoryEditor() {
               Edit timeline
             </h2>
             <p className="mt-1 text-sm text-cream-soft/75">
-              Ctrl + Shift + 7 to show or hide · drag the left edge to reorder
+              Ctrl + Shift + 7 · drag the left edge to reorder
             </p>
           </div>
           <button
@@ -249,6 +249,16 @@ export function StoryEditor() {
               >
                 <Plus className="h-4 w-4" />
                 Add milestone
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setStoryOpen(false);
+                  setOpen(true);
+                }}
+                className="rounded-full border border-gold/30 px-4 py-2 text-sm"
+              >
+                Day-of controls
               </button>
               <button
                 type="button"

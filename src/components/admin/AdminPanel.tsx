@@ -27,6 +27,7 @@ export function AdminPanel() {
     setPageVisible,
     setLiveNowId,
     setLiveMode,
+    setStoryOpen,
   } = useAdmin();
   const [pin, setPin] = useState("");
   const [pinError, setPinError] = useState(false);
@@ -56,7 +57,7 @@ export function AdminPanel() {
               Admin
             </h2>
             <p className="mt-1 text-sm text-cream-soft/75">
-              Ctrl + Shift + 6 opens this panel; press it again to advance to the next moment
+              Ctrl + Shift + 6, or press and hold the A&A mark for five seconds
               {connectedGuests ? ` · ${connectedGuests} guest${connectedGuests === 1 ? "" : "s"} connected` : ""}
             </p>
           </div>
@@ -143,6 +144,16 @@ export function AdminPanel() {
               <PageGroup title="Main navigation" group="nav" pages={pages} onToggle={setPageVisible} />
               <PageGroup title="More" group="more" pages={pages} onToggle={setPageVisible} />
               <PageGroup title="Games" group="games" pages={pages} onToggle={setPageVisible} />
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  setStoryOpen(true);
+                }}
+                className="mt-2 w-full rounded-2xl border border-gold/30 px-4 py-3 text-sm text-burgundy"
+              >
+                Edit our story timeline
+              </button>
             </section>
           </div>
         )}
