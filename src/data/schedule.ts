@@ -103,16 +103,6 @@ export const schedule: ScheduleEvent[] = [
     icon: "heart",
   },
   {
-    id: "dancing",
-    title: "Dancing",
-    scheduledTime: "2026-10-12T15:00:00-04:00",
-    timeLabel: "3:00 PM",
-    location: "Ballroom dance floor",
-    description: "Hora, chair lifting, and the kind of dancing that does not require a plan.",
-    guestTip: "Comfortable shoes win. If you are lifted in a chair, hold on and smile.",
-    icon: "music",
-  },
-  {
     id: "dinner",
     title: "Dinner",
     scheduledTime: "2026-10-12T15:00:00-04:00",
@@ -121,6 +111,16 @@ export const schedule: ScheduleEvent[] = [
     description: "A kosher dinner, toasts, and a little catching of breath.",
     guestTip: "If you have a toast, keep it kind, short, and destined for the microphone — not the table.",
     icon: "utensils",
+  },
+  {
+    id: "dancing",
+    title: "Dancing",
+    scheduledTime: "2026-10-12T15:00:00-04:00",
+    timeLabel: "3:00 PM",
+    location: "Ballroom dance floor",
+    description: "Hora, chair lifting, and the kind of dancing that does not require a plan.",
+    guestTip: "Comfortable shoes win. If you are lifted in a chair, hold on and smile.",
+    icon: "music",
   },
   {
     id: "late-night",
@@ -142,8 +142,8 @@ export const liveTimelineIds = [
   "chuppah",
   "sheva-brachot",
   "breaking-glass",
-  "dancing",
   "dinner",
+  "dancing",
   "late-night",
 ] as const;
 

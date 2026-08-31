@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { Radio } from "lucide-react";
 import { venue } from "@/data/venue";
 import { VenueMap } from "@/components/wedding/VenueMap";
+import { VisibleLink } from "@/components/site/VisibleLink";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -13,9 +15,15 @@ export default function VenuePage() {
         <p className="text-[0.65rem] uppercase tracking-[0.28em] text-gold-ink">Venue Map</p>
         <h1 className="mt-1 font-display text-3xl leading-tight text-burgundy md:text-4xl">{venue.name}</h1>
         <p className="mt-1 text-sm text-ink-muted">{venue.address}</p>
-        <Link href={venue.directionsUrl} className={cn(buttonVariants({ size: "sm" }), "mt-2 inline-flex")}>
-          Get directions
-        </Link>
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
+          <Link href={venue.directionsUrl} className={cn(buttonVariants({ size: "sm" }), "inline-flex")}>
+            Get directions
+          </Link>
+          <VisibleLink href="/live" className={cn(buttonVariants({ variant: "outline", size: "sm" }), "inline-flex")}>
+            <Radio className="h-3.5 w-3.5" />
+            Back to live mode
+          </VisibleLink>
+        </div>
       </div>
       <VenueMap />
     </div>

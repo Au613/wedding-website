@@ -5,32 +5,27 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function RoomBlockCard() {
-  const hotel = venue.hotel;
   return (
     <Card className="p-6 md:p-8">
-      <p className="text-xs uppercase tracking-[0.22em] text-gold-ink">Room block</p>
-      <h3 className="mt-2 font-display text-3xl text-burgundy">{hotel.name}</h3>
-      <p className="mt-3 max-w-xl text-ink-muted">{hotel.blurb}</p>
-      <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-2">
-        <div>
-          <dt className="uppercase tracking-[0.16em] text-gold-ink">Code</dt>
-          <dd className="font-medium">{hotel.code}</dd>
-        </div>
-        <div>
-          <dt className="uppercase tracking-[0.16em] text-gold-ink">Book by</dt>
-          <dd>{hotel.deadline}</dd>
-        </div>
-      </dl>
-      <ul className="mt-5 flex flex-wrap gap-2">
-        {hotel.perks.map((perk) => (
-          <li key={perk} className="rounded-full bg-burgundy-mist px-3 py-1 text-xs uppercase tracking-[0.12em] text-burgundy">
-            {perk}
+      <p className="text-xs uppercase tracking-[0.22em] text-gold-ink">Where to stay</p>
+      <h3 className="mt-2 font-display text-3xl text-burgundy">Nearby hotels</h3>
+      <p className="mt-3 max-w-xl text-ink-muted">
+        There is no room block. These are two nearby suggestions if you would like to stay close to the farm.
+      </p>
+      <ul className="mt-6 space-y-5">
+        {venue.hotels.map((hotel) => (
+          <li key={hotel.name} className="rounded-2xl border border-gold/20 bg-cream-soft p-4">
+            <h4 className="font-display text-2xl text-burgundy">{hotel.name}</h4>
+            <p className="mt-1 text-sm text-ink-muted">{hotel.address}</p>
+            <Link
+              href={hotel.mapsUrl}
+              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-3 inline-flex")}
+            >
+              Get directions
+            </Link>
           </li>
         ))}
       </ul>
-      <Link href={hotel.bookingUrl} className={cn(buttonVariants(), "mt-6 inline-flex")}>
-        Book your room
-      </Link>
     </Card>
   );
 }

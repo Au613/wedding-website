@@ -22,10 +22,10 @@ export function SevenBrachotList() {
               </span>
             </AccordionTrigger>
             <AccordionContent>
-              <p dir="rtl" lang="he" className="mb-3 font-display text-2xl text-burgundy">
+              <p dir="rtl" lang="he" className="mb-3 whitespace-normal break-words font-display text-2xl leading-loose text-burgundy">
                 {bracha.hebrew}
               </p>
-              <p className="italic text-ink-muted">{bracha.transliteration}</p>
+              <p className="whitespace-normal break-words italic leading-relaxed text-ink-muted">{bracha.transliteration}</p>
               <p className="mt-3">{bracha.explanation}</p>
               <button
                 type="button"

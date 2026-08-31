@@ -151,7 +151,7 @@ export const faq: FaqCategory[] = [
         id: "airport",
         question: "Which airport should I fly into?",
         answer:
-          "SNA (John Wayne) is closest. LAX works if the flights are better. A shuttle runs from the hotel area on the wedding day — details are on Travel.",
+          "BOS (Boston Logan) is closest. Manchester (MHT) and Providence (PVD) are useful alternatives. See Travel for drive times.",
       },
     ],
   },

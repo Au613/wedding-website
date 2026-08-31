@@ -23,7 +23,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
 function SiteFrame({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const fillViewport = pathname === "/venue";
+  const fillViewport = pathname === "/venue" || pathname === "/live";
 
   return (
     <div className={fillViewport ? "flex h-dvh flex-col overflow-hidden" : "flex min-h-screen flex-col"}>

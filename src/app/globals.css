@@ -43,6 +43,7 @@ body {
 
 .live-timeline::-webkit-scrollbar {
   height: 6px;
+  width: 6px;
   background: transparent;
 }
 

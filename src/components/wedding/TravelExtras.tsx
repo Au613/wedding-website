@@ -9,7 +9,6 @@ import { useAdmin } from "@/components/admin/AdminProvider";
 const extras = [
   { href: "/venue", title: "Venue & Directions", body: venue.address },
   { href: "/venue", title: "Parking", body: venue.parking },
-  { href: "/travel", title: "Shuttle", body: venue.shuttle },
   { href: couple.registryUrl, title: "Registry", body: "A list, if you like lists.", external: true },
   { href: "/faq", title: "FAQ", body: "Airports, kids, kashrut, and cameras." },
 ];

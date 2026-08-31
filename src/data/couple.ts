@@ -6,7 +6,6 @@ export type PhotoKey =
   | "storyThree"
   | "austin"
   | "alexa"
-  | "guide"
   | "live"
   | "dress"
   | "hotel"
@@ -42,7 +41,7 @@ export const couple = {
   venueAddress: "38 Felton St, Peabody, MA 01960",
   instagram: "https://instagram.com",
   whatsapp: "https://wa.me/",
-  registryUrl: "https://www.zola.com",
+  registryUrl: "https://www.amazon.com/wedding/guest-view/DAL3CJRT9UT8",
   welcomeMessage:
     "We cannot wait to gather our favorite people under one chuppah — and then dance until the late-night spread appears. This site is your companion for the weekend: what to expect, where to be, who you might already know, and a few games for good measure.",
   photos: {
@@ -53,7 +52,6 @@ export const couple = {
     storyThree: "/photos/portrait.jpg",
     austin: "/photos/austin.jpg",
     alexa: "/photos/alexa.jpg",
-    guide: "/photos/walking.jpg",
     live: "/photos/live.jpg",
     dress: "/photos/ring.jpg",
     hotel: "/photos/walking.jpg",

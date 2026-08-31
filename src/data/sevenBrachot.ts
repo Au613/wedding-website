@@ -79,12 +79,12 @@ export const sevenBrachot: Bracha[] = [
     id: 7,
     title: "Asher Bara",
     transliteration:
-      "Baruch atah Adonai, Eloheinu melech haolam, asher bara sason v'simcha, chatan v'kallah...",
+      "Baruch atah Adonai, Eloheinu melech haolam, asher bara sason v'simcha, chatan v'kallah, gilah rinah ditzah v'chedvah, ahavah v'achavah v'shalom v'rei'ut. Meherah Adonai Eloheinu yishama b'arei Yehudah uv'chutzot Yerushalayim kol sason v'kol simcha, kol chatan v'kol kallah, kol mitzhalot chatanim meichupatam un'arim mimishteh neginatam. Baruch atah Adonai, mesameach chatan im hakallah.",
     hebrew:
-      "בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר בָּרָא שָׂשׂוֹן וְשִׂמְחָה חָתָן וְכַלָּה גִּילָה רִנָּה דִּיצָה וְחֶדְוָה אַהֲבָה וְאַחֲוָה וְשָׁלוֹם וְרֵעוּת. בָּרוּךְ אַתָּה יְיָ, מְשַׂמֵּחַ הַחָתָן עִם הַכַּלָּה",
+      "בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר בָּרָא שָׂשׂוֹן וְשִׂמְחָה חָתָן וְכַלָּה, גִּילָה רִנָּה דִּיצָה וְחֶדְוָה, אַהֲבָה וְאַחֲוָה וְשָׁלוֹם וְרֵעוּת. מְהֵרָה יְיָ אֱלֹהֵינוּ יִשָּׁמַע בְּעָרֵי יְהוּדָה וּבְחוּצוֹת יְרוּשָׁלָיִם קוֹל שָׂשׂוֹן וְקוֹל שִׂמְחָה, קוֹל חָתָן וְקוֹל כַּלָּה, קוֹל מִצְהֲלוֹת חֲתָנִים מֵחֻפָּתָם וּנְעָרִים מִמִּשְׁתֵּה נְגִינָתָם. בָּרוּךְ אַתָּה יְיָ, מְשַׂמֵּחַ חָתָן עִם הַכַּלָּה",
     theme: "Joy, gladness, bride and groom",
     explanation:
-      "A cascade of joy-words. This is the blessing that sounds like a wedding, because it is one.",
+      "A cascade of joy-words, then a hope that the sound of bride and groom will be heard again in the cities of Judah and the streets of Jerusalem. This is the blessing that sounds like a wedding, because it is one.",
     needsReview: true,
   },
 ];
