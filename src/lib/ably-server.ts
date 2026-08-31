@@ -1,4 +1,4 @@
-import { Rest } from "ably";
+import { Rest, type capabilityOp } from "ably";
 import { ABLY_CHANNEL } from "@/lib/ably-events";
 
 function isApiKey(value?: string) {
@@ -38,7 +38,7 @@ export async function mintGuestTokenRequest(clientId?: string) {
   const ttl = 60 * 60 * 1000;
   const safeClientId =
     clientId && /^[A-Za-z0-9._:-]{1,64}$/.test(clientId) && !clientId.includes("*") ? clientId : undefined;
-  const attempts = [
+  const attempts: Array<{ rest: Rest; capability: { [key: string]: capabilityOp[] | ["*"] } }> = [
     { rest: createGuestTokenRest(), capability: { [channel]: ["subscribe", "presence"] } },
     { rest: createAblyRest(), capability: { [channel]: ["subscribe", "presence"] } },
     { rest: createAblyRest(), capability: { [channel]: ["subscribe"] } },
