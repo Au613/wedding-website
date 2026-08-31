@@ -1,19 +1,40 @@
 "use client";
 
+import { useState } from "react";
 import { X } from "lucide-react";
 import { sitePages } from "@/data/sitePages";
-import { schedule, type LiveNowId } from "@/data/schedule";
+import { liveTimelineEvents, type LiveNowId } from "@/data/schedule";
 import { cn } from "@/lib/utils";
 import { useAdmin } from "./AdminProvider";
+import { useScrollCurrentIntoView } from "@/lib/useScrollCurrentIntoView";
 
 const timeline: Array<{ id: LiveNowId; label: string; time?: string }> = [
   { id: "pre", label: "Not started" },
-  ...schedule.map((event) => ({ id: event.id, label: event.title, time: event.timeLabel })),
+  ...liveTimelineEvents().map((event) => ({ id: event.id, label: event.title, time: event.timeLabel })),
   { id: "done", label: "All done" },
 ];
 
 export function AdminPanel() {
-  const { open, setOpen, pages, liveNowId, setPageVisible, setLiveNowId } = useAdmin();
+  const {
+    open,
+    setOpen,
+    pages,
+    liveNowId,
+    liveMode,
+    connectedGuests,
+    needsPin,
+    unlockAdmin,
+    setPageVisible,
+    setLiveNowId,
+    setLiveMode,
+  } = useAdmin();
+  const [pin, setPin] = useState("");
+  const [pinError, setPinError] = useState(false);
+  const currentRef = useScrollCurrentIntoView(open && !needsPin ? String(liveNowId) : undefined, {
+    block: "nearest",
+    inline: "nearest",
+  });
+
   if (!open) return null;
 
   return (
@@ -34,7 +55,10 @@ export function AdminPanel() {
             <h2 id="admin-title" className="font-display text-3xl">
               Admin
             </h2>
-            <p className="mt-1 text-sm text-cream-soft/75">Ctrl + Shift + 6 to show or hide this panel</p>
+            <p className="mt-1 text-sm text-cream-soft/75">
+              Ctrl + Shift + 6 opens this panel; press it again to advance to the next moment
+              {connectedGuests ? ` · ${connectedGuests} guest${connectedGuests === 1 ? "" : "s"} connected` : ""}
+            </p>
           </div>
           <button
             type="button"
@@ -46,42 +70,82 @@ export function AdminPanel() {
           </button>
         </div>
 
-        <div className="grid gap-8 p-6 md:grid-cols-[1.1fr_0.9fr] md:p-8">
-          <section>
-            <h3 className="text-xs uppercase tracking-[0.22em] text-gold-ink">Now happening</h3>
-            <p className="mb-4 mt-1 text-sm text-ink-muted">Guests see this as the live wedding moment.</p>
-            <ol className="max-h-[28rem] space-y-1 overflow-y-auto pr-1">
-              {timeline.map((item) => {
-                const active = liveNowId === item.id;
-                return (
-                  <li key={String(item.id)}>
-                    <button
-                      type="button"
-                      onClick={() => setLiveNowId(item.id)}
-                      className={cn(
-                        "flex w-full items-center justify-between rounded-2xl border px-4 py-3 text-left transition",
-                        active
-                          ? "border-burgundy bg-burgundy text-cream-soft"
-                          : "border-gold/20 bg-cream-soft hover:border-gold",
-                      )}
-                    >
-                      <span className="font-medium">{item.label}</span>
-                      {item.time ? <span className="text-xs uppercase tracking-[0.14em] opacity-80">{item.time}</span> : null}
-                    </button>
-                  </li>
-                );
-              })}
-            </ol>
-          </section>
+        {needsPin ? (
+          <form
+            className="p-8"
+            onSubmit={async (event) => {
+              event.preventDefault();
+              const ok = await unlockAdmin(pin);
+              setPinError(!ok);
+              if (ok) setPin("");
+            }}
+          >
+            <p className="text-sm text-ink-muted">Enter the admin PIN from ADMIN_SECRET to publish live updates.</p>
+            <input
+              type="password"
+              value={pin}
+              onChange={(event) => setPin(event.target.value)}
+              className="mt-4 w-full rounded-full border border-gold/30 bg-cream-soft px-4 py-3"
+              autoFocus
+            />
+            {pinError ? <p className="mt-2 text-sm text-burgundy">That PIN did not match.</p> : null}
+            <button type="submit" className="mt-4 rounded-full bg-burgundy px-6 py-2 text-sm uppercase tracking-[0.16em] text-cream-soft">
+              Unlock
+            </button>
+          </form>
+        ) : (
+          <div className="grid gap-8 p-6 md:grid-cols-[1.1fr_0.9fr] md:p-8">
+            <section>
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-xs uppercase tracking-[0.22em] text-gold-ink">Now happening</h3>
+                  <p className="mt-1 text-sm text-ink-muted">One current moment. Guests update instantly.</p>
+                </div>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={liveMode}
+                  onClick={() => setLiveMode(!liveMode)}
+                  className={cn("relative h-6 w-11 shrink-0 rounded-full transition", liveMode ? "bg-burgundy" : "bg-cream-deep")}
+                >
+                  <span className={cn("absolute top-0.5 h-5 w-5 rounded-full bg-cream-soft shadow-soft transition", liveMode ? "left-5" : "left-0.5")} />
+                </button>
+              </div>
+              <ol className="max-h-[28rem] space-y-1 overflow-y-auto pr-1">
+                {timeline.map((item) => {
+                  const active = liveNowId === item.id;
+                  return (
+                    <li key={String(item.id)} ref={active ? currentRef : undefined}>
+                      <button
+                        type="button"
+                        onClick={() => setLiveNowId(item.id)}
+                        className={cn(
+                          "flex h-[4.25rem] w-full items-center justify-between gap-3 rounded-2xl border px-4 text-left transition",
+                          active
+                            ? "border-burgundy bg-burgundy text-cream-soft"
+                            : "border-gold/20 bg-cream-soft hover:border-gold",
+                        )}
+                      >
+                        <span className="line-clamp-2 font-medium leading-tight">{item.label}</span>
+                        {item.time ? (
+                          <span className="shrink-0 text-xs uppercase tracking-[0.14em] opacity-80">{item.time}</span>
+                        ) : null}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
 
-          <section>
-            <h3 className="text-xs uppercase tracking-[0.22em] text-gold-ink">Show pages</h3>
-            <p className="mb-4 mt-1 text-sm text-ink-muted">Hidden pages leave the navigation and are blocked if opened.</p>
-            <PageGroup title="Main navigation" group="nav" pages={pages} onToggle={setPageVisible} />
-            <PageGroup title="More" group="more" pages={pages} onToggle={setPageVisible} />
-            <PageGroup title="Games" group="games" pages={pages} onToggle={setPageVisible} />
-          </section>
-        </div>
+            <section>
+              <h3 className="text-xs uppercase tracking-[0.22em] text-gold-ink">Show pages</h3>
+              <p className="mb-4 mt-1 text-sm text-ink-muted">Hidden pages leave the navigation and are blocked if opened.</p>
+              <PageGroup title="Main navigation" group="nav" pages={pages} onToggle={setPageVisible} />
+              <PageGroup title="More" group="more" pages={pages} onToggle={setPageVisible} />
+              <PageGroup title="Games" group="games" pages={pages} onToggle={setPageVisible} />
+            </section>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { couple } from "@/data/couple";
-import { storyMilestones } from "@/data/story";
 import { PageContainer, SectionTitle } from "@/components/site/PageContainer";
+import { StoryTimeline } from "@/components/wedding/StoryTimeline";
 import { Reveal } from "@/components/site/Reveal";
 import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
@@ -36,18 +36,7 @@ export default function StoryPage() {
               </Card>
             </Reveal>
           ))}
-          <ol className="relative ml-3 border-l border-gold/40 pl-8">
-            {storyMilestones.map((item) => (
-              <Reveal key={item.year}>
-                <li className="mb-10">
-                  <span className="absolute -left-2 mt-1 h-4 w-4 rounded-full border border-gold bg-cream-soft" />
-                  <p className="text-xs uppercase tracking-[0.2em] text-gold-ink">{item.year}</p>
-                  <h3 className="font-display text-2xl text-burgundy">{item.title}</h3>
-                  <p className="text-ink-muted">{item.caption}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
+          <StoryTimeline />
           <Link href="/" className={cn(buttonVariants())}>
             Save the date
           </Link>

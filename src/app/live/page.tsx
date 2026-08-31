@@ -2,20 +2,22 @@
 
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { getEventStatus, liveTimelineIds, resolveLiveNowId, schedule } from "@/data/schedule";
+import { getEventStatus, liveTimelineEvents, resolveLiveNowId, resolveLiveStripId } from "@/data/schedule";
 import { couple } from "@/data/couple";
 import { cn } from "@/lib/utils";
 import { useAdmin } from "@/components/admin/AdminProvider";
+import { useScrollCurrentIntoView } from "@/lib/useScrollCurrentIntoView";
 
 export default function LivePage() {
-  const { liveNowId } = useAdmin();
-  const nowId = resolveLiveNowId(new Date(), liveNowId);
-  const current = schedule.find((event) => event.id === nowId) ?? schedule[0];
-  const currentIndex = schedule.findIndex((event) => event.id === nowId);
-  const next = nowId === "pre" ? schedule[0] : nowId === "done" ? undefined : schedule[currentIndex + 1];
-  const liveEvents = schedule.filter((event) =>
-    (liveTimelineIds as readonly string[]).includes(event.id),
-  );
+  const { liveNowId, ready } = useAdmin();
+  const nowId = resolveLiveStripId(resolveLiveNowId(new Date(), liveNowId));
+  const liveEvents = liveTimelineEvents();
+  const current = liveEvents.find((event) => event.id === nowId) ?? liveEvents[0];
+  const currentIndex = liveEvents.findIndex((event) => event.id === nowId);
+  const next = nowId === "pre" ? liveEvents[0] : nowId === "done" ? undefined : liveEvents[currentIndex + 1];
+  const scrollId =
+    nowId === "pre" ? liveEvents[0]?.id : nowId === "done" ? liveEvents[liveEvents.length - 1]?.id : nowId;
+  const currentRef = useScrollCurrentIntoView(ready ? scrollId : undefined, { block: "nearest", inline: "center" });
 
   const title =
     nowId === "pre"
@@ -27,7 +29,7 @@ export default function LivePage() {
           : `${current.title} is happening now`;
 
   return (
-    <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-burgundy-dark text-cream-soft">
+    <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-burgundy-dark text-cream-soft [color-scheme:dark]">
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-40"
         style={{ backgroundImage: `url(${couple.photos.live})` }}
@@ -60,21 +62,25 @@ export default function LivePage() {
                 ? `Up next: ${next.title} • est. ${next.timeLabel}`
                 : "This is the last event of the night"}
           </div>
-          <ol className="flex gap-3 overflow-x-auto pb-2">
+          <ol className="live-timeline flex gap-3 overflow-x-auto bg-transparent pb-2">
             {liveEvents.map((event) => {
-              const status = getEventStatus(event, nowId);
+              const status = getEventStatus(event, nowId, liveEvents);
               return (
-                <li key={event.id} className="min-w-[140px] flex-1">
+                <li
+                  key={event.id}
+                  ref={event.id === scrollId ? currentRef : undefined}
+                  className="flex min-w-[10.5rem] flex-1"
+                >
                   <div
                     className={cn(
-                      "rounded-2xl border px-3 py-4 text-center",
+                      "flex h-[9.25rem] w-full flex-col justify-between rounded-2xl border px-3 py-4 text-center",
                       status === "happening" && "animate-pulse-gold border-gold bg-burgundy",
                       status === "completed" && "border-white/10 text-cream-soft/50",
                       status === "upcoming" && "border-white/15",
                     )}
                   >
                     <p className="text-[0.65rem] uppercase tracking-[0.16em]">{event.timeLabel}</p>
-                    <p className="mt-1 font-display text-xl">{event.title}</p>
+                    <p className="font-display text-xl leading-tight">{event.title}</p>
                     <p className="text-[0.65rem] uppercase tracking-[0.12em] text-gold-pale">{status}</p>
                   </div>
                 </li>

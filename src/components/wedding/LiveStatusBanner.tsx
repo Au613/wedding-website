@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { getEventStatus, resolveLiveNowId, schedule } from "@/data/schedule";
+import { getEventStatus, liveTimelineEvents, resolveLiveNowId, resolveLiveStripId } from "@/data/schedule";
 import { useAdmin } from "@/components/admin/AdminProvider";
 
 export function LiveStatusBanner() {
   const { liveNowId, isVisible } = useAdmin();
-  const nowId = resolveLiveNowId(new Date(), liveNowId);
-  const current = schedule.find((event) => event.id === nowId) ?? schedule[0];
-  const currentIndex = schedule.findIndex((event) => event.id === nowId);
-  const next = nowId === "done" || nowId === "pre" ? (nowId === "pre" ? schedule[0] : undefined) : schedule[currentIndex + 1];
-  const status = nowId === "pre" || nowId === "done" ? nowId : getEventStatus(current, nowId);
+  const nowId = resolveLiveStripId(resolveLiveNowId(new Date(), liveNowId));
+  const liveEvents = liveTimelineEvents();
+  const current = liveEvents.find((event) => event.id === nowId) ?? liveEvents[0];
+  const currentIndex = liveEvents.findIndex((event) => event.id === nowId);
+  const next = nowId === "done" || nowId === "pre" ? (nowId === "pre" ? liveEvents[0] : undefined) : liveEvents[currentIndex + 1];
+  const status = nowId === "pre" || nowId === "done" ? nowId : getEventStatus(current, nowId, liveEvents);
 
   const headline =
     nowId === "pre"

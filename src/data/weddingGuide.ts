@@ -126,7 +126,7 @@ export const weddingGuide: GuideStage[] = [
   {
     id: "dancing",
     number: 9,
-    title: "Dancing / Reception",
+    title: "Dancing",
     duration: "The rest of the night",
     whatHappens:
       "Dinner, toasts, the hora, chairs in the air, and dancing that lasts longer than anyone planned.",

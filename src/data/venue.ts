@@ -8,18 +8,18 @@ export type MapPin = {
 };
 
 export const venue = {
-  name: "The Pasea Hotel & Spa",
-  address: "21080 Pacific Coast Highway, Huntington Beach, CA 92648",
-  directionsUrl: "https://maps.google.com/?q=The+Pasea+Hotel+%26+Spa",
+  name: "Felton Farm / Smith Barn",
+  address: "38 Felton St, Peabody, MA 01960",
+  directionsUrl: "https://maps.google.com/?q=38+Felton+St,+Peabody,+MA+01960",
   parking:
-    "Valet is at the main porte-cochère. Self-park is in the hotel garage — follow Pasea Wedding signs. Do not use the adjacent residential lot.",
+    "Follow Felton St to the farm entrance and the parking sign toward the gravel lot. Please do not park on neighboring residential driveways.",
   shuttle:
-    "A complimentary shuttle will loop from the room-block lobby to the ceremony lawn beginning at 5:00 PM. Last return is 12:30 AM.",
-  rideshare: "Use the Pacific Coast Highway hotel entrance. Pin: Pasea Hotel main lobby.",
+    "A complimentary shuttle will loop from the room-block lobby to the ceremony lawn. Last return is 12:30 AM.",
+  rideshare: "Drop off at 38 Felton St, Peabody. Pin: Felton Farm / Smith Barn.",
   airports: [
-    { code: "SNA", name: "John Wayne", note: "Closest — about 20 minutes." },
-    { code: "LAX", name: "Los Angeles International", note: "Better international options — plan 60–90 minutes." },
-    { code: "LGB", name: "Long Beach", note: "A calm alternative when flights align." },
+    { code: "BOS", name: "Boston Logan", note: "Closest major airport — about 25–40 minutes, traffic depending." },
+    { code: "MHT", name: "Manchester-Boston", note: "A calmer alternative — about 50 minutes." },
+    { code: "PVD", name: "Rhode Island T.F. Green", note: "Useful for some routes — plan about 90 minutes." },
   ],
   hotel: {
     name: "The Pasea Hotel & Spa",
@@ -32,14 +32,10 @@ export const venue = {
       "A coastal room block with easy access to the ceremony lawn, parking, and a place to hide from your relatives for ten minutes.",
   },
   pins: [
-    { id: "entrance", number: 1, name: "Entrance", description: "Main arrival and welcome desk.", x: 18, y: 62 },
-    { id: "parking", number: 2, name: "Parking", description: "Valet and garage access.", x: 12, y: 78 },
-    { id: "cocktail", number: 3, name: "Cocktail Hour", description: "Terrace and lawn with passed bites.", x: 38, y: 48 },
-    { id: "chuppah", number: 4, name: "Chuppah", description: "Garden ceremony canopy.", x: 58, y: 32 },
-    { id: "reception", number: 5, name: "Reception", description: "Grand ballroom dinner and toasts.", x: 72, y: 50 },
-    { id: "dance", number: 6, name: "Dance Floor", description: "Hora, chairs, and late-night joy.", x: 78, y: 62 },
-    { id: "restrooms", number: 7, name: "Restrooms", description: "Ballroom foyer, both sides.", x: 86, y: 40 },
-    { id: "coat", number: 8, name: "Coat Check", description: "Just inside the ballroom entrance.", x: 64, y: 72 },
-    { id: "photo", number: 9, name: "Photo Booth", description: "Props, the monkey, and no excuses.", x: 46, y: 70 },
+    { id: "parking", number: 0, name: "Parking", description: "Arrive on Felton St and follow the parking sign to the gravel lot.", x: 78, y: 86 },
+    { id: "barn", number: 1, name: "Cocktail Hour, Badeken & Meal", description: "Smith Barn — drinks, the badeken, dinner, and dancing.", x: 48, y: 46 },
+    { id: "tisch", number: 2, name: "Tisch", description: "Outdoor table under the lights, just off the barn.", x: 22, y: 70 },
+    { id: "chuppah", number: 3, name: "Ceremony / Chuppah", description: "Garden ceremony with benches facing the chuppah.", x: 74, y: 22 },
   ] satisfies MapPin[],
+  mapImage: "/photos/venue-map.jpg",
 };
