@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 .next
 out
 dist
@@ -13,5 +13,7 @@ _npm*
 _nodeok.txt
 _help.txt
 _where.txt
+_dims.txt
+_magic.txt
 .vercel
 next-env.d.ts
