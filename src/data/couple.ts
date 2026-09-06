@@ -62,6 +62,7 @@ export const couple = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/story", label: "Our Story" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/guide", label: "Guide" },
   { href: "/guests", label: "Guests" },
   { href: "/schedule", label: "Schedule" },
@@ -81,6 +82,7 @@ export const mobileTabItems = [
 
 export const quickLinks = [
   { href: "/story", label: "Our Story", description: "How we got here" },
+  { href: "/gallery", label: "Gallery", description: "Tunnel and totem" },
   { href: "/guide", label: "What to Expect", description: "A gentle walkthrough" },
   { href: "/travel", label: "Venue & Travel", description: "Stay, park, arrive" },
   { href: "/schedule", label: "Schedule", description: "The day's rhythm" },

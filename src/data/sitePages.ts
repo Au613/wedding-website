@@ -8,6 +8,7 @@ export type SitePage = {
 export const sitePages: SitePage[] = [
   { href: "/", label: "Home", group: "nav", locked: true },
   { href: "/story", label: "Our Story", group: "nav" },
+  { href: "/gallery", label: "Gallery", group: "nav" },
   { href: "/guide", label: "Guide", group: "nav" },
   { href: "/guests", label: "Guests", group: "nav" },
   { href: "/schedule", label: "Schedule", group: "nav" },

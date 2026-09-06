@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { couple } from "@/data/couple";
 import { PageHero } from "@/components/site/PageHero";
 import { PageContainer } from "@/components/site/PageContainer";
@@ -9,7 +8,7 @@ import { RoomBlockCard } from "@/components/wedding/RoomBlockCard";
 import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { HomeDressTeaser, HomeHeroActions, HomeQuickLinks } from "@/components/site/HomeVisibility";
+import { HomeDressTeaser, HomeGalleryTeaser, HomeHeroActions, HomeQuickLinks } from "@/components/site/HomeVisibility";
 
 export default function HomePage() {
   return (
@@ -27,25 +26,7 @@ export default function HomePage() {
       </PageHero>
       <PageContainer wide>
         <HomeQuickLinks />
-        <Reveal className="mt-12 grid gap-4 md:grid-cols-[1.2fr_0.9fr]">
-          <PhotoFrame
-            src={couple.photos.storyMain}
-            alt="Austin and Alexa among the trees"
-            className="min-h-[22rem]"
-          />
-          <div className="grid gap-4">
-            <PhotoFrame
-              src={couple.photos.storyOne}
-              alt="Walking together in a field"
-              className="min-h-40"
-            />
-            <PhotoFrame
-              src={couple.photos.storyTwo}
-              alt="Alexa showing her engagement ring"
-              className="min-h-40"
-            />
-          </div>
-        </Reveal>
+        <HomeGalleryTeaser />
         <Reveal className="mt-16 grid gap-8 lg:grid-cols-2">
           <Card className="p-8">
             <p className="text-xs uppercase tracking-[0.22em] text-gold-ink">A note from us</p>
