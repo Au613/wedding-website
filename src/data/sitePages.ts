@@ -16,7 +16,7 @@ export const sitePages: SitePage[] = [
   { href: "/games", label: "Games", group: "nav" },
   { href: "/more", label: "More", group: "nav" },
   { href: "/live", label: "Live Wedding Mode", group: "more" },
-  { href: "/dress-code", label: "Dress Code", group: "more" },
+  { href: "/dress-code", label: "Attire", group: "more" },
   { href: "/venue", label: "Venue Map", group: "more" },
   { href: "/brachot", label: "Seven Brachot", group: "more" },
   { href: "/guestbook", label: "Guest Book", group: "more" },
@@ -31,7 +31,7 @@ export const sitePages: SitePage[] = [
 
 export const moreLinks = [
   { href: "/live", title: "Live Wedding Mode" },
-  { href: "/dress-code", title: "Dress Code" },
+  { href: "/dress-code", title: "Attire" },
   { href: "/venue", title: "Venue Map" },
   { href: "/brachot", title: "Seven Brachot" },
   { href: "/guestbook", title: "Guest Book" },

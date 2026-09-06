@@ -8,7 +8,7 @@ import { useAdmin } from "@/components/admin/AdminProvider";
 
 const links = [
   { href: "/live", title: "Live Wedding Mode", icon: Radio },
-  { href: "/dress-code", title: "Dress Code", icon: Shirt },
+  { href: "/dress-code", title: "Attire", icon: Shirt },
   { href: "/venue", title: "Venue Map", icon: Map },
   { href: "/brachot", title: "Seven Brachot", icon: Wine },
   { href: "/guestbook", title: "Guest Book", icon: BookHeart },

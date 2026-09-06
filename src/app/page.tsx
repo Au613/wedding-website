@@ -33,12 +33,12 @@ export default function HomePage() {
             <p className="mt-4 leading-relaxed text-ink-muted">{couple.welcomeMessage}</p>
           </Card>
           <Card className="p-8">
-            <p className="text-xs uppercase tracking-[0.22em] text-gold-ink">Dress code</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-gold-ink">Attire</p>
             <p className="mt-3 font-display text-3xl leading-snug text-burgundy">
               Formal / Evening attire
             </p>
             <p className="mt-4 leading-relaxed text-ink-muted">
-              {"Formal or evening attire. But if you'd really like wear whatever you'd like. If you wore pajamas, you better be prepared to dance in pajamas!"}
+              {"Formal or evening attire. But if you'd like, wear whatever you'd like. If you wear pajamas, you better be prepared to dance in pajamas!"}
             </p>
             <p className="mt-4 leading-relaxed text-ink-muted">
               Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.

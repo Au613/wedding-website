@@ -32,9 +32,9 @@ export const weddingGuide: GuideStage[] = [
     hebrew: "קבלת פנים",
     duration: "About 1 hour",
     whatHappens:
-      "The bride receives guests in a beautifully set room. Think: queen for an evening, with better lighting.",
+      "The bride receives guests in a beautifully set room. Think: a queen's reception with better lighting.",
     whyItMatters:
-      "It's a formal greeting that says: you are not just attendees. You are our community.",
+      "It's a formal greeting that says: you are not just attendees. You are our honored guests.",
     whatGuestsDo:
       "Offer a warm mazel tov and grab a hug from the bride.",
     icon: "spark",
@@ -116,7 +116,7 @@ export const weddingGuide: GuideStage[] = [
     hebrew: "יחוד",
     duration: "About 15 minutes",
     whatHappens:
-      "The couple is danced away to a private room. Witnesses stand outside. Inside: water, a first married breath, maybe french fries.",
+      "The couple is danced away to a private room. Witnesses stand outside. Inside: water, snacks, and a first break together as a married couple.",
     whyItMatters:
       "After a very public ritual, Jewish tradition gives the couple a secluded beginning.",
     whatGuestsDo:
