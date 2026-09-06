@@ -50,7 +50,7 @@ export const weddingGuide: GuideStage[] = [
     whyItMatters:
       "It echoes the moment Jacob was deceived by a veil — and becomes a tender act of seeing and covering, all at once.",
     whatGuestsDo:
-      "Gather close, and watch the couple have the moment after a few difficult days apart. Tissues recommended.",
+      "Gather close, and watch the couple have the moment after a few days apart. Tissues recommended.",
     icon: "veil",
   },
   {
@@ -62,7 +62,7 @@ export const weddingGuide: GuideStage[] = [
     whatHappens:
       "We stand beneath a canopy open on all four sides. The ceremony unfolds in Hebrew and English.",
     whyItMatters:
-      "The chuppah is our first home: open to guests, held up by the people we love, and just a little bit windswept.",
+      "The chuppah is our first home: open to guests, symbolically held up by the people we love, and just a little bit windswept.",
     whatGuestsDo:
       "Seating is mixed gendered so find a place with a view, and settle in. This is the heart of the day.",
     icon: "canopy",

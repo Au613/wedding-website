@@ -49,7 +49,7 @@ export const faq: FaqCategory[] = [
         id: "how-formal",
         question: "What should we wear?",
         answer:
-          "Formal / Evening attire. But if you wear pajamas, you better be prepared to dance in pajamas! Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.",
+          "Formal / Evening attire. But if you wear pajamas, be prepared to dance in pajamas! Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.",
       },
     ],
   },
