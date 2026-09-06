@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { GuideStageCard } from "./GuideStageCard";
 
 export function WeddingGuideStepper() {
-  const [active, setActive] = useState(3);
+  const [active, setActive] = useState(weddingGuide[0]?.number ?? 1);
   const stage = useMemo(
     () => weddingGuide.find((item) => item.number === active) ?? weddingGuide[0],
     [active],

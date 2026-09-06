@@ -38,7 +38,7 @@ export default function HomePage() {
               Formal / Evening attire
             </p>
             <p className="mt-4 leading-relaxed text-ink-muted">
-              {"Formal or evening attire. But if you'd like, wear whatever you'd like. If you wear pajamas, you better be prepared to dance in pajamas!"}
+              {"Formal or evening attire. But if you'd like, wear whatever you'd prefer. If you choose pajamas, you better be prepared to dance in pajamas!"}
             </p>
             <p className="mt-4 leading-relaxed text-ink-muted">
               Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.
