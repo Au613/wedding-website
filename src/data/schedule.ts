@@ -89,7 +89,7 @@ export const schedule: ScheduleEvent[] = [
     timeLabel: "2:25–2:40 PM",
     location: "Private yichud room",
     description: "A few quiet minutes alone as a married couple.",
-    guestTip: "Do not wait for us at the door. Hors d'oeuvres are next — we will find you.",
+    guestTip: "Hors d'oeuvres are next — we will find you.",
     icon: "heart",
   },
   {

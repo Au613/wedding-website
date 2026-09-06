@@ -12,22 +12,8 @@ export type GuideStage = {
 
 export const weddingGuide: GuideStage[] = [
   {
-    id: "tisch",
-    number: 1,
-    title: "Tisch",
-    hebrew: "טיש",
-    duration: "About 1 hour",
-    whatHappens:
-      "The groom sits with family and friends. There are words of Torah, singing, and a growing sense that this is really happening.",
-    whyItMatters:
-      "It's a last gathering as a groomsman among groomsmen — joy with a little gravity.",
-    whatGuestsDo:
-      "Sing along, and keep the energy high. If not, head to Kabbalat Panim.",
-    icon: "table",
-  },
-  {
     id: "kabbalat-panim",
-    number: 2,
+    number: 1,
     title: "Kabbalat Panim",
     hebrew: "קבלת פנים",
     duration: "About 1 hour",
@@ -38,6 +24,20 @@ export const weddingGuide: GuideStage[] = [
     whatGuestsDo:
       "Offer a warm mazel tov and grab a hug from the bride.",
     icon: "spark",
+  },
+  {
+    id: "tisch",
+    number: 2,
+    title: "Tisch",
+    hebrew: "טיש",
+    duration: "About 1 hour",
+    whatHappens:
+      "The groom sits with family and friends. There are words of Torah, singing, and a growing sense that this is really happening.",
+    whyItMatters:
+      "It's a last gathering as a groomsman among groomsmen — joy with a little gravity.",
+    whatGuestsDo:
+      "Sing along, and keep the energy high. If not, head to Kabbalat Panim.",
+    icon: "table",
   },
   {
     id: "badeken",
@@ -120,7 +120,7 @@ export const weddingGuide: GuideStage[] = [
     whyItMatters:
       "After a very public ritual, Jewish tradition gives the couple a secluded beginning.",
     whatGuestsDo:
-      "Do not wait at the door. Hors d'oeuvres and the first course are your next stop. We will find you.",
+      "Hors d'oeuvres and the first course are your next stop. We will find you.",
     icon: "door",
   },
   {
@@ -133,7 +133,7 @@ export const weddingGuide: GuideStage[] = [
     whyItMatters:
       "The ceremony made us married. The dancing makes it a wedding.",
     whatGuestsDo:
-      "Eat, dance, introduce yourself to someone new, and stay as long as you can.",
+      "Eat, dance, introduce yourself to someone new, and stay as long as you'd like.",
     icon: "dance",
   },
 ];
