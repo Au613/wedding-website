@@ -19,7 +19,7 @@ export const faq: FaqCategory[] = [
         id: "what-to-expect",
         question: "I've never been to an Orthodox Jewish wedding. Will I be lost?",
         answer:
-          "Not at all. The day has a clear rhythm, and this site is built to walk you through it. Stand where ushers guide you, follow the room, and when in doubt, look for someone smiling and ask. People love explaining.",
+          "Not at all. The day has a clear rhythm, and this site is built to walk you through it. Follow the room, and when in doubt, look for someone smiling and ask. People love explaining.",
       },
       {
         id: "mechitza",
@@ -31,7 +31,7 @@ export const faq: FaqCategory[] = [
         id: "kippah",
         question: "Do I need to bring a kippah?",
         answer:
-          "If you are a man (or anyone who would like one), kippot will be available at the entrance. You are welcome to wear your own. It is a sign of respect during the ceremony, not a test.",
+          "If you are a man (or anyone who would like one), kippot will be available at the entrance. You are welcome to wear your own. It is a sign of respect during the ceremony, not a test. But if you don't want to wear one — you do you.",
       },
       {
         id: "participate",
@@ -47,15 +47,9 @@ export const faq: FaqCategory[] = [
     items: [
       {
         id: "how-formal",
-        question: "How formal is this?",
+        question: "What should we wear?",
         answer:
-          "Elegant evening attire. Think wedding, not nightclub; festive, not casual Friday. See the Dress Code page for examples.",
-      },
-      {
-        id: "women-cover",
-        question: "What should women wear?",
-        answer:
-          "Dresses around the knee or longer are perfect. Sleeves or a wrap are appreciated. Please skip white and ivory — those are for Alexa.",
+          "Wear Shabbas or Church Clothes but if you wore pajamas, you better be prepared to dance in pajamas!",
       },
     ],
   },
@@ -67,13 +61,13 @@ export const faq: FaqCategory[] = [
         id: "assigned",
         question: "Is there assigned seating?",
         answer:
-          "Yes for dinner. Cocktail hour is open. Your table number will be on your card and in the guest directory.",
+          "Yes for dinner. Cocktail hour is open. Your table number will be assigned.",
       },
       {
         id: "plus-one",
         question: "Can I move seats to sit with friends?",
         answer:
-          "We seated people with care. If something feels off, find a coordinator — not an empty chair at table one.",
+          "If it feels off - find a happy place",
       },
     ],
   },
@@ -109,7 +103,7 @@ export const faq: FaqCategory[] = [
         id: "how-long",
         question: "How long is the ceremony?",
         answer:
-          "About 30–40 minutes under the chuppah, not including the tisch, kabbalat panim, and badeken beforehand.",
+          "About 35 minutes under the chuppah, from 1:45 to 2:20, not including the tisch, kabbalat panim, and badeken beforehand.",
       },
     ],
   },
@@ -139,7 +133,7 @@ export const faq: FaqCategory[] = [
         id: "where-park",
         question: "Where do I park?",
         answer:
-          "Valet and self-park are available at the hotel. See Travel for the exact entrance. Do not park in the residential lot next door — they are not in a wedding mood.",
+          "There is parking next to the venue — and more than enough.",
       },
     ],
   },

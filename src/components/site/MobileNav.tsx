@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, CircleEllipsis, Gamepad2, Home, Users } from "lucide-react";
+import { BookOpen, CircleEllipsis, Gamepad2, Home, Images } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAdmin } from "@/components/admin/AdminProvider";
 
 const tabs = [
   { href: "/", label: "Home", icon: Home },
   { href: "/guide", label: "Guide", icon: BookOpen },
-  { href: "/guests", label: "Guests", icon: Users },
+  { href: "/gallery", label: "Gallery", icon: Images },
   { href: "/games", label: "Games", icon: Gamepad2 },
   { href: "/more", label: "More", icon: CircleEllipsis },
 ];

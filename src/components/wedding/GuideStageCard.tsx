@@ -2,6 +2,7 @@ import { Heart, Home, Music, Sparkles, Wine } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import type { GuideStage } from "@/data/weddingGuide";
 import { cn } from "@/lib/utils";
+import { TextWithBrachotLink } from "./TextWithBrachotLink";
 
 const icons = {
   table: Wine,
@@ -44,7 +45,11 @@ function Block({ title, body }: { title: string; body: string }) {
   return (
     <div>
       <h3 className="mb-2 text-xs uppercase tracking-[0.18em] text-gold-ink">{title}</h3>
-      <p className="leading-relaxed text-ink-muted">{body}</p>
+      <TextWithBrachotLink
+        text={body}
+        className="leading-relaxed text-ink-muted"
+        linkClassName="text-burgundy underline decoration-gold/60 underline-offset-4"
+      />
     </div>
   );
 }

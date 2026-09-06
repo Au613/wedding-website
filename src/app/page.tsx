@@ -8,7 +8,7 @@ import { RoomBlockCard } from "@/components/wedding/RoomBlockCard";
 import { Card } from "@/components/ui/card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { HomeDressTeaser, HomeGalleryTeaser, HomeHeroActions, HomeQuickLinks } from "@/components/site/HomeVisibility";
+import { HomeHeroActions, HomeQuickLinks } from "@/components/site/HomeVisibility";
 
 export default function HomePage() {
   return (
@@ -26,7 +26,6 @@ export default function HomePage() {
       </PageHero>
       <PageContainer wide>
         <HomeQuickLinks />
-        <HomeGalleryTeaser />
         <Reveal className="mt-16 grid gap-8 lg:grid-cols-2">
           <Card className="p-8">
             <p className="text-xs uppercase tracking-[0.22em] text-gold-ink">A note from us</p>
@@ -35,9 +34,9 @@ export default function HomePage() {
           </Card>
           <Card className="p-8">
             <p className="text-xs uppercase tracking-[0.22em] text-gold-ink">Dress code</p>
-            <h2 className="mt-2 font-display text-4xl text-burgundy">Elegant. Respectful. Timeless.</h2>
-            <p className="mt-4 text-ink-muted">Knee-length or longer, sleeves or a wrap, suits for the gentlemen, kippot at the door. White is for Alexa.</p>
-            <HomeDressTeaser />
+            <p className="mt-3 font-display text-3xl leading-snug text-burgundy">
+              Wear Shabbas or Church Clothes but if you wore pajamas, you better be prepared to dance in pajamas!
+            </p>
           </Card>
         </Reveal>
         <Reveal className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">

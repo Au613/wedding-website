@@ -8,31 +8,51 @@ export type EventDetail = {
 };
 
 const extras: Record<string, EventDetail> = {
+  arrive: {
+    duration: "12:00 PM",
+    whatHappens: "The event starts and guests arrive at Felton Farm / Smith Barn.",
+    whyItMatters: "This is the opening of the day — walk in, you belong here.",
+    whatGuestsDo: "Arrive, say hello, and find Kabbalat Panim or the tisch.",
+  },
+  "tisch-speaking": {
+    duration: "30 minutes",
+    whatHappens: "Words of Torah and speaking at the tisch, while the meal continues.",
+    whyItMatters: "It is the last gathering around Austin before he is danced to Alexa.",
+    whatGuestsDo: "Listen, sing if you know the songs, and keep the energy high.",
+  },
+  processional: {
+    duration: "30 minutes",
+    whatHappens: "Guests and wedding party move from the tisch and kabbalat panim toward the chuppah.",
+    whyItMatters: "This is the breath between greeting and covenant.",
+    whatGuestsDo: "Follow ushers, find a seat, and settle in. Ceremony starts at 1:45.",
+  },
   cocktail: {
-    duration: "About 60 minutes",
+    duration: "45 minutes",
     whatHappens:
-      "Passed bites, first reunions, and the photo booth warming up. Guests arrive, find a drink, and settle into the day.",
-    whyItMatters:
-      "This is the soft opening of the wedding — the hour when strangers become a room full of people who love the same two humans.",
-    whatGuestsDo:
-      "Say hello to people you have not seen in years, grab something to eat, and enjoy the lawn. The ceremony comes next.",
+      "Hors d'oeuvres and the first course while the couple and wedding party are in photos.",
+    whyItMatters: "This is the first sit-down of the celebration — eat, reconnect, and get ready to dance.",
+    whatGuestsDo: "Find a plate and a table. Dancing Round 1 starts at 3:30.",
   },
   dinner: {
-    duration: "About 60 minutes",
-    whatHappens:
-      "Guests are invited to their tables and enjoy a beautiful, celebratory meal prepared just for today. Toasts and special moments may be shared throughout the dinner.",
-    whyItMatters:
-      "Dinner is a time to connect, celebrate, and recharge together. It brings everyone back before we get back on the dance floor for the rest of the night.",
-    whatGuestsDo:
-      "Find your table, settle in, and enjoy. Take a moment to chat with loved ones around you and get ready — more dancing is coming soon.",
+    duration: "35 minutes",
+    whatHappens: "The entree is served. Catch your breath between dance sets.",
+    whyItMatters: "Dinner brings everyone back to the table before the next round of dancing.",
+    whatGuestsDo: "Sit, eat, and enjoy the people around you. More dancing and dessert are next.",
   },
   "late-night": {
-    duration: "Until the lights come up",
+    duration: "40 minutes",
+    whatHappens: "Dancing Round 2, plus dessert.",
+    whyItMatters: "The second wind — the people who are still here, which is to say: our people.",
+    whatGuestsDo: "Dance, grab dessert, and stay through benching if you can.",
+  },
+  "sheva-brachot": {
+    duration: "20 minutes",
     whatHappens:
-      "A second wind on the dance floor — slower songs, favorite hits, and the people who never want to leave.",
+      "Benching — grace after meals — and then the seven blessings of joy, recited by people we love.",
     whyItMatters:
-      "The ceremony made us married. This last hour is for the guests who are still here, which is to say: our people.",
-    whatGuestsDo: "If you are still here, stay. Comfortable shoes, one more song, and no early goodbyes.",
+      "They widen the moment from two people to creation, community, and the joy of Zion itself.",
+    whatGuestsDo:
+      "Listen. If you know the responses, join softly. Details live on our Seven Brachot page.",
   },
 };
 

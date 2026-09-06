@@ -8,6 +8,7 @@ import { getEventDetail } from "@/data/eventDetails";
 import { couple } from "@/data/couple";
 import { cn } from "@/lib/utils";
 import { useAdmin } from "@/components/admin/AdminProvider";
+import { TextWithBrachotLink } from "@/components/wedding/TextWithBrachotLink";
 
 const icons = {
   glass: GlassWater,
@@ -21,13 +22,13 @@ const icons = {
 };
 
 const groups: Array<{ label: string; ids: string[]; tone: "gold" | "burgundy" }> = [
-  { label: "Cocktail Hour", ids: ["cocktail", "tisch", "kabbalat-panim", "badeken"], tone: "gold" },
-  { label: "Ceremony", ids: ["chuppah", "sheva-brachot", "breaking-glass"], tone: "burgundy" },
-  { label: "Reception", ids: ["dinner", "dancing", "late-night"], tone: "gold" },
+  { label: "Welcome", ids: ["arrive", "kabbalat-panim", "tisch", "tisch-speaking", "badeken", "processional"], tone: "gold" },
+  { label: "Ceremony", ids: ["chuppah"], tone: "burgundy" },
+  { label: "Reception", ids: ["yichud", "cocktail", "dancing", "dinner", "late-night", "sheva-brachot"], tone: "gold" },
 ];
 
 function isWarm(id: string) {
-  return id === "cocktail" || id === "chuppah" || id === "dinner";
+  return id === "cocktail" || id === "chuppah" || id === "dinner" || id === "dancing";
 }
 
 function statusCopy(status: EventStatus, isNext: boolean) {
@@ -62,7 +63,7 @@ export default function LivePage() {
       ? "Guests are arriving"
       : nowId === "done"
         ? "Mazel tov!"
-        : nowId === "chuppah" || nowId === "kiddushin" || nowId === "badeken"
+        : nowId === "chuppah" || nowId === "processional"
           ? "Ceremony is beginning!"
           : `${current.title} is happening now`;
 
@@ -260,7 +261,11 @@ function DetailBlock({ title, body }: { title: string; body: string }) {
   return (
     <div className="min-h-0">
       <h3 className="mb-1.5 text-xs uppercase tracking-[0.18em] text-gold">{title}</h3>
-      <p className="text-sm leading-snug text-cream-soft/85 md:leading-relaxed">{body}</p>
+      <TextWithBrachotLink
+        text={body}
+        className="text-sm leading-snug text-cream-soft/85 md:leading-relaxed"
+        linkClassName="text-gold-pale underline decoration-gold/70 underline-offset-4"
+      />
     </div>
   );
 }

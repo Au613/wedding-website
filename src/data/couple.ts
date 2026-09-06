@@ -43,7 +43,7 @@ export const couple = {
   whatsapp: "https://wa.me/",
   registryUrl: "https://www.amazon.com/wedding/guest-view/DAL3CJRT9UT8",
   welcomeMessage:
-    "We cannot wait to gather our favorite people under one chuppah — and then dance until the late-night spread appears. This site is your companion for the weekend: what to expect, where to be, who you might already know, and a few games for good measure.",
+    "We cannot wait to gather our favorite people under one chuppah. This site is your companion for the weekend: what to expect, where to be, and a few games for good measure.",
   photos: {
     hero: "/photos/hero.jpg",
     storyMain: "/photos/portrait.jpg",
@@ -64,7 +64,6 @@ export const navItems = [
   { href: "/story", label: "Our Story" },
   { href: "/gallery", label: "Gallery" },
   { href: "/guide", label: "Guide" },
-  { href: "/guests", label: "Guests" },
   { href: "/schedule", label: "Schedule" },
   { href: "/travel", label: "Travel" },
   { href: "/faq", label: "FAQ" },
@@ -75,17 +74,14 @@ export const navItems = [
 export const mobileTabItems = [
   { href: "/", label: "Home", icon: "home" },
   { href: "/guide", label: "Guide", icon: "guide" },
-  { href: "/guests", label: "Guests", icon: "guests" },
   { href: "/games", label: "Games", icon: "games" },
   { href: "/more", label: "More", icon: "more" },
 ] as const;
 
 export const quickLinks = [
   { href: "/story", label: "Our Story", description: "How we got here" },
-  { href: "/gallery", label: "Gallery", description: "Tunnel and totem" },
   { href: "/guide", label: "What to Expect", description: "A gentle walkthrough" },
   { href: "/travel", label: "Venue & Travel", description: "Stay, park, arrive" },
   { href: "/schedule", label: "Schedule", description: "The day's rhythm" },
   { href: "/games", label: "Games Hub", description: "Trivia, bingo, and more" },
-  { href: "/guests", label: "Guest Directory", description: "Find & connect" },
 ] as const;

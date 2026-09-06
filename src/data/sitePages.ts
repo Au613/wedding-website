@@ -10,7 +10,6 @@ export const sitePages: SitePage[] = [
   { href: "/story", label: "Our Story", group: "nav" },
   { href: "/gallery", label: "Gallery", group: "nav" },
   { href: "/guide", label: "Guide", group: "nav" },
-  { href: "/guests", label: "Guests", group: "nav" },
   { href: "/schedule", label: "Schedule", group: "nav" },
   { href: "/travel", label: "Travel", group: "nav" },
   { href: "/faq", label: "FAQ", group: "nav" },
