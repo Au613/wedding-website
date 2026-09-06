@@ -50,14 +50,6 @@ export async function ensureSchema() {
           photo TEXT NOT NULL DEFAULT '/photos/walking.jpg'
         )
       `;
-      await db`
-        CREATE TABLE IF NOT EXISTS story_photos (
-          id TEXT PRIMARY KEY,
-          mime TEXT NOT NULL,
-          data TEXT NOT NULL,
-          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-        )
-      `;
       const existingStory = await db`SELECT id FROM story_milestones LIMIT 1`;
       if (existingStory.length === 0) {
         for (const [index, item] of storyMilestones.entries()) {
@@ -181,29 +173,9 @@ export async function replaceStory(items: StoryMilestone[]) {
         ${item.date.trim() || "Date"},
         ${item.title.trim() || "Untitled"},
         ${item.caption.trim()},
-        ${item.photo.trim()}
+        ${String(item.photo ?? "").trim()}
       )
     `;
   }
   return readStory();
-}
-
-export async function insertStoryPhoto(id: string, mime: string, jpegBase64: string) {
-  await ensureSchema();
-  const db = sql();
-  await db`
-    INSERT INTO story_photos (id, mime, data)
-    VALUES (${id}, ${mime}, ${jpegBase64})
-  `;
-}
-
-export async function readStoryPhoto(id: string) {
-  await ensureSchema();
-  const db = sql();
-  const rows = await db`
-    SELECT mime, data FROM story_photos WHERE id = ${id} LIMIT 1
-  `;
-  const row = rows[0] as { mime: string; data: string } | undefined;
-  if (!row) return null;
-  return { mime: row.mime, data: Buffer.from(row.data, "base64") };
 }

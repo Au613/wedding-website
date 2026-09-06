@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, type DragEvent } from "react";
-import { GripVertical, ImagePlus, Plus, Trash2, X } from "lucide-react";
+import { GripVertical, Plus, Trash2, X } from "lucide-react";
 import type { StoryMilestone } from "@/data/story";
-import { fileToJpegBlob } from "@/lib/resize-image";
 import { cn } from "@/lib/utils";
 import { useAdmin } from "./AdminProvider";
 
@@ -13,7 +12,7 @@ function blankMilestone(): StoryMilestone {
     date: "",
     title: "",
     caption: "",
-    photo: "",
+    photo: "/photos/walking.jpg",
   };
 }
 
@@ -26,19 +25,18 @@ export function StoryEditor() {
   const [saved, setSaved] = useState(false);
   const [draggingId, setDraggingId] = useState<string | null>(null);
   const [dropHint, setDropHint] = useState<{ index: number; edge: "before" | "after" } | null>(null);
-  const [uploadingId, setUploadingId] = useState<string | null>(null);
-  const [uploadError, setUploadError] = useState("");
   const listRef = useRef<HTMLDivElement>(null);
   const dragIndex = useRef<number | null>(null);
+  const wasOpen = useRef(false);
 
   useEffect(() => {
-    if (storyOpen) {
+    if (storyOpen && !wasOpen.current) {
       setDraft(milestones);
       setSaved(false);
       setDraggingId(null);
       setDropHint(null);
-      setUploadError("");
     }
+    wasOpen.current = storyOpen;
   }, [storyOpen, milestones]);
 
   if (!storyOpen) return null;
@@ -79,28 +77,15 @@ export function StoryEditor() {
 
   function onCardDragOver(event: DragEvent<HTMLElement>, index: number) {
     event.preventDefault();
-    const hasFile = [...event.dataTransfer.types].includes("Files");
-    event.dataTransfer.dropEffect = hasFile ? "copy" : "move";
+    event.dataTransfer.dropEffect = "move";
     autoScroll(event.clientY);
-    if (hasFile) {
-      setDropHint(null);
-      return;
-    }
     const rect = event.currentTarget.getBoundingClientRect();
     const edge = event.clientY < rect.top + rect.height / 2 ? "before" : "after";
-    setDropHint({ index, edge });
+    setDropHint((prev) => (prev?.index === index && prev?.edge === edge ? prev : { index, edge }));
   }
 
   function onCardDrop(event: DragEvent<HTMLElement>, index: number) {
     event.preventDefault();
-    const file = event.dataTransfer.files?.[0];
-    if (file && file.type.startsWith("image/")) {
-      void uploadPhoto(draft[index]?.id ?? "", file);
-      dragIndex.current = null;
-      setDraggingId(null);
-      setDropHint(null);
-      return;
-    }
     const from = dragIndex.current;
     if (from == null) return;
     const rect = event.currentTarget.getBoundingClientRect();
@@ -117,33 +102,6 @@ export function StoryEditor() {
     dragIndex.current = null;
     setDraggingId(null);
     setDropHint(null);
-  }
-
-  async function uploadPhoto(id: string, file: File) {
-    if (!id) return;
-    setUploadError("");
-    setUploadingId(id);
-    try {
-      const blob = await fileToJpegBlob(file);
-      const form = new FormData();
-      form.append("file", blob, "milestone.jpg");
-      const response = await fetch("/api/admin/story-photo", { method: "POST", body: form });
-      if (response.status === 401) {
-        setUploadError("Unlock the editor with the admin PIN, then try again.");
-        return;
-      }
-      const data = (await response.json().catch(() => null)) as { url?: string; error?: string } | null;
-      if (!response.ok || !data?.url) {
-        setUploadError(data?.error || "Could not upload that photo.");
-        return;
-      }
-      setDraft((items) => items.map((item) => (item.id === id ? { ...item, photo: data.url! } : item)));
-      setSaved(false);
-    } catch {
-      setUploadError("Could not read that image. Try a JPEG or PNG.");
-    } finally {
-      setUploadingId(null);
-    }
   }
 
   return (
@@ -270,59 +228,17 @@ export function StoryEditor() {
                         rows={3}
                         className="mt-1 w-full rounded-xl border border-gold/25 bg-cream px-3 py-2 text-sm"
                       />
-                      <label className="mt-3 block text-xs uppercase tracking-[0.14em] text-ink-muted">Photo</label>
-                      {item.photo ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={item.photo}
-                          alt=""
-                          className="mt-2 h-36 w-full rounded-xl bg-cream object-cover"
-                        />
-                      ) : (
-                        <div className="mt-2 flex h-24 items-center justify-center rounded-xl border border-dashed border-gold/30 bg-cream text-sm text-ink-muted">
-                          No photo yet
-                        </div>
-                      )}
-                      <div className="mt-2 flex flex-wrap items-center gap-2">
-                        <label className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-gold/30 bg-cream px-3 py-1.5 text-sm">
-                          <ImagePlus className="h-4 w-4" />
-                          {uploadingId === item.id ? "Uploading…" : "Upload photo"}
-                          <input
-                            type="file"
-                            accept="image/*"
-                            className="sr-only"
-                            disabled={uploadingId === item.id}
-                            onChange={(event) => {
-                              const file = event.target.files?.[0];
-                              event.target.value = "";
-                              if (file) void uploadPhoto(item.id, file);
-                            }}
-                          />
-                        </label>
-                        {item.photo ? (
-                          <button
-                            type="button"
-                            className="rounded-full border border-gold/25 px-3 py-1.5 text-sm text-burgundy"
-                            onClick={() => update(index, { photo: "" })}
-                          >
-                            Remove photo
-                          </button>
-                        ) : null}
-                      </div>
                       <label className="mt-3 block text-xs uppercase tracking-[0.14em] text-ink-muted">Photo path</label>
                       <input
                         value={item.photo}
                         onChange={(event) => update(index, { photo: event.target.value })}
                         className="mt-1 w-full rounded-xl border border-gold/25 bg-cream px-3 py-2 text-sm"
-                        placeholder="/photos/portrait.jpg"
                       />
                     </div>
                   </article>
                 );
               })}
             </div>
-
-            {uploadError ? <p className="shrink-0 px-4 text-sm text-burgundy md:px-8">{uploadError}</p> : null}
 
             <div className="flex shrink-0 flex-wrap items-center gap-3 border-t border-gold/20 bg-cream px-4 py-4 md:px-8">
               <button

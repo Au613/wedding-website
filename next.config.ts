@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  serverExternalPackages: ["ably", "sharp"],
+  serverExternalPackages: ["ably"],
 };
 
 export default nextConfig;

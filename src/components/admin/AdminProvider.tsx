@@ -58,9 +58,11 @@ export function AdminProvider({ children }: { children: ReactNode }) {
   const [milestones, setMilestones] = useState<StoryMilestone[]>(defaultStory);
   const channelName = useRef(ABLY_CHANNEL);
   const openRef = useRef(open);
+  const storyOpenRef = useRef(storyOpen);
   const needsPinRef = useRef(needsPin);
   const liveNowIdRef = useRef(state.liveNowId);
   openRef.current = open;
+  storyOpenRef.current = storyOpen;
   needsPinRef.current = needsPin;
   liveNowIdRef.current = state.liveNowId;
 
@@ -151,6 +153,7 @@ export function AdminProvider({ children }: { children: ReactNode }) {
         });
 
         channel.subscribe(ablyEvents.storyChanged, (message) => {
+          if (storyOpenRef.current) return;
           const data = message.data as { milestones?: StoryMilestone[] };
           if (Array.isArray(data.milestones)) setMilestones(data.milestones);
         });
@@ -205,6 +208,7 @@ export function AdminProvider({ children }: { children: ReactNode }) {
   const saveStory = useCallback(async (items: StoryMilestone[]) => {
     const response = await fetch("/api/admin/story", {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ milestones: items }),
     });
