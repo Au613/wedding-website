@@ -41,7 +41,7 @@ export const couple = {
   venueAddress: "38 Felton St, Peabody, MA 01960",
   instagram: "https://instagram.com",
   whatsapp: "https://wa.me/",
-  registryUrl: "https://www.amazon.com/wedding/guest-view/DAL3CJRT9UT8",
+  registryUrl: "https://www.zola.com/registry/alexaandaustinoctober12",
   welcomeMessage:
     "We cannot wait to gather our favorite people under one chuppah. This is a companion for the wedding: what to expect, where to be, and a few games for good measure.",
   photos: {
