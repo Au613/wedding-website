@@ -43,7 +43,7 @@ export const couple = {
   whatsapp: "https://wa.me/",
   registryUrl: "https://www.amazon.com/wedding/guest-view/DAL3CJRT9UT8",
   welcomeMessage:
-    "We cannot wait to gather our favorite people under one chuppah. This site is your companion for the weekend: what to expect, where to be, and a few games for good measure.",
+    "We cannot wait to gather our favorite people under one chuppah. This is a companion for the wedding: what to expect, where to be, and a few games for good measure.",
   photos: {
     hero: "/photos/hero.jpg",
     storyMain: "/photos/portrait.jpg",

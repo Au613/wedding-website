@@ -106,7 +106,7 @@ export const weddingGuide: GuideStage[] = [
     whyItMatters:
       "Even at the height of joy, we remember that the world is unfinished — and still, we choose to celebrate.",
     whatGuestsDo:
-      "When the glass breaks, shout mazel tov. Then we kiss, and the dancing can begin.",
+      "When the glass breaks, shout mazel tov. Then the dancing can begin.",
     icon: "glass",
   },
   {
