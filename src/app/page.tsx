@@ -38,7 +38,7 @@ export default function HomePage() {
               Formal / Evening attire
             </p>
             <p className="mt-4 leading-relaxed text-ink-muted">
-              {"Suggested: Suit and Ties for men and Cocktail or midi dress; dressy jumpsuit also works. But wear whatever you'd like. If you wore pajamas, you better be prepared to dance in pajamas!"}
+              {"Formal or evening attire. But if you'd really like wear whatever you'd like. If you wore pajamas, you better be prepared to dance in pajamas!"}
             </p>
             <p className="mt-4 leading-relaxed text-ink-muted">
               Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.

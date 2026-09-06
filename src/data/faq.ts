@@ -49,7 +49,7 @@ export const faq: FaqCategory[] = [
         id: "how-formal",
         question: "What should we wear?",
         answer:
-          "Formal / Evening attire. Suggested: Suit and Ties for men and Cocktail or midi dress; dressy jumpsuit also works. But wear whatever you'd like. If you wore pajamas, you better be prepared to dance in pajamas! Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.",
+          "Formal / Evening attire. But if you wore pajamas, you better be prepared to dance in pajamas! Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.",
       },
     ],
   },

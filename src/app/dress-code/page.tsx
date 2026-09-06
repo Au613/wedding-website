@@ -10,7 +10,7 @@ export default function DressCodePage() {
         Formal / Evening attire
       </p>
       <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-relaxed text-ink-muted">
-        {"Suggested: Suit and Ties for men and Cocktail or midi dress; dressy jumpsuit also works. But wear whatever you'd like. If you wore pajamas, you better be prepared to dance in pajamas!"}
+        {"Formal or evening attire. But wear whatever you'd like. If you wore pajamas, you better be prepared to dance in pajamas!"}
       </p>
       <p className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-ink-muted">
         Weather permitting, the ceremony is outside, so some heels and stilettos may be hard to walk in.
