@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { Instagram } from "lucide-react";
 import { couple } from "@/data/couple";
 import { Monogram } from "./Monogram";
 
@@ -18,14 +16,6 @@ export function Footer() {
         </div>
         <p className="max-w-sm text-sm text-cream-soft/80">We can&apos;t wait to celebrate with you!</p>
         <div className="flex flex-col items-center gap-3 md:items-end">
-          <div className="flex gap-3">
-            <Link href={couple.instagram} aria-label="Instagram" className="rounded-full border border-gold/30 p-2">
-              <Instagram className="h-4 w-4" />
-            </Link>
-            <Link href={couple.whatsapp} aria-label="WhatsApp" className="rounded-full border border-gold/30 px-3 py-2 text-xs tracking-[0.16em]">
-              WA
-            </Link>
-          </div>
           <p className="text-xs tracking-[0.18em] text-gold-pale">{couple.hashtag}</p>
         </div>
       </div>
