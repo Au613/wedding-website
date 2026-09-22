@@ -5,7 +5,7 @@ import { useCallback, useEffect, useId, useRef, useState, type KeyboardEvent, ty
 import { galleryPhotos } from "@/data/galleryPhotos";
 import { cn } from "@/lib/utils";
 
-type CardKind = "photo" | "title" | "pattern" | "date" | "number";
+type CardKind = "photo" | "title" | "pattern" | "date";
 
 type ScatterNode = {
   nx: number;
@@ -24,7 +24,7 @@ const NODES: ScatterNode[] = [
   { nx: 0.34, ny: 0.24, scale: 0.9, aspect: 1.46, kind: "date" },
   { nx: -0.44, ny: 0.1, scale: 0.72, aspect: 1.38, kind: "pattern" },
   { nx: 0.22, ny: 0.4, scale: 0.74, aspect: 1.36, kind: "photo" },
-  { nx: -0.26, ny: 0.44, scale: 0.64, aspect: 1.4, kind: "number" },
+  { nx: -0.26, ny: 0.44, scale: 0.64, aspect: 1.4, kind: "photo" },
   { nx: 0.48, ny: 0.04, scale: 0.7, aspect: 0.8, kind: "photo" },
   { nx: -0.06, ny: -0.44, scale: 0.68, aspect: 1.5, kind: "photo" },
   { nx: 0.18, ny: -0.38, scale: 0.6, aspect: 1.32, kind: "pattern" },
@@ -93,18 +93,6 @@ function ScatterFace({
       <div className="relative h-full w-full bg-[#2a1c22]">
         <FlowerMark className="inset-0" />
         <p className="absolute bottom-4 left-4 font-sans text-xs uppercase tracking-[0.22em] text-cream/80">1 Cheshvan 5787</p>
-      </div>
-    );
-  }
-
-  if (kind === "number") {
-    return (
-      <div className="flex h-full w-full flex-col justify-between bg-[#1c1612] p-5">
-        <p className="font-sans text-[0.65rem] uppercase tracking-[0.28em] text-gold-pale">Frame</p>
-        <p className="font-sans text-5xl font-medium tracking-[0.08em] text-cream-soft">
-          {String((photoIndex % galleryPhotos.length) + 1).padStart(4, "0")}
-        </p>
-        <p className="text-sm text-cream/70">{photo.caption}</p>
       </div>
     );
   }
