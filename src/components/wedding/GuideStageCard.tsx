@@ -1,6 +1,6 @@
-import { Heart, Home, Music, Sparkles, Wine } from "lucide-react";
+import { Heart, Home, Music, PartyPopper, Sparkles, Wine } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import type { GuideStage } from "@/data/weddingGuide";
+import { weddingGuide, type GuideStage } from "@/data/weddingGuide";
 import { cn } from "@/lib/utils";
 import { TextWithBrachotLink } from "./TextWithBrachotLink";
 
@@ -14,6 +14,7 @@ const icons = {
   glass: Wine,
   door: Home,
   dance: Music,
+  shtick: PartyPopper,
 };
 
 export function GuideStageCard({ stage, nested = false }: { stage: GuideStage; nested?: boolean }) {
@@ -21,7 +22,7 @@ export function GuideStageCard({ stage, nested = false }: { stage: GuideStage; n
   return (
     <Card hover={false} className={cn("relative overflow-hidden p-6 md:p-10", nested && "border-0 bg-transparent p-0 shadow-none")}>
       <p className="text-xs uppercase tracking-[0.24em] text-gold-ink">
-        {stage.number} of 9{stage.hebrew ? ` • ${stage.hebrew}` : ""}
+        {stage.number} of {weddingGuide.length}{stage.hebrew ? ` • ${stage.hebrew}` : ""}
       </p>
       <div className="mt-4 flex items-start gap-4">
         <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 text-gold-ink">

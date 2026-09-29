@@ -16,7 +16,13 @@ function pad(value: number, size = 2) {
   return String(value).padStart(size, "0");
 }
 
-export function Countdown({ target = couple.datetime }: { target?: string }) {
+export function Countdown({
+  target = couple.datetime,
+  align = "center",
+}: {
+  target?: string;
+  align?: "center" | "start";
+}) {
   const date = useMemo(() => new Date(target), [target]);
   const [now, setNow] = useState<number | null>(null);
 
@@ -47,7 +53,10 @@ export function Countdown({ target = couple.datetime }: { target?: string }) {
       {remaining < 0 ? (
         <p className="mb-4 text-xs uppercase tracking-[0.28em] text-gold-pale">Mazel tov — we are married</p>
       ) : null}
-      <div className="flex flex-wrap items-center justify-center gap-3" aria-live="off">
+      <div
+        className={`flex flex-wrap items-center gap-3 ${align === "start" ? "justify-center lg:justify-start" : "justify-center"}`}
+        aria-live="off"
+      >
         {cells.map((cell) => (
           <div
             key={cell.label}

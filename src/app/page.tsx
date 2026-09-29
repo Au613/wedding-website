@@ -15,12 +15,30 @@ export default function HomePage() {
     <>
       <PageHero image={couple.photos.hero} alt="Austin and Alexa">
         <p className="text-xs uppercase tracking-[0.35em]">Welcome to our wedding</p>
-        <h1 className="mt-4 font-display text-6xl md:text-8xl">{couple.names}</h1>
+        <h1 className="mt-4 font-display text-5xl sm:text-6xl xl:text-7xl">{couple.names}</h1>
         <p className="mt-4 text-sm uppercase tracking-[0.22em] text-gold-pale">
           {couple.displayDate} • {couple.hebrewDate}
         </p>
+        <div className="mt-4 max-w-md space-y-3 text-sm leading-relaxed text-cream-soft/85">
+          <div>
+            <p>
+              <span className="font-medium text-gold-pale">12:00 PM</span>
+              {" · Cocktail hour"}
+            </p>
+            <p className="mt-0.5 italic text-cream-soft/70">Smith Barn, {couple.venueAddress}</p>
+          </div>
+          <div>
+            <p>
+              <span className="font-medium text-gold-pale">1:30 PM</span>
+              {" · Outdoor ceremony"}
+            </p>
+            <p className="mt-0.5 italic text-cream-soft/70">
+              Felton-Smith historic site across the street
+            </p>
+          </div>
+        </div>
         <div className="mt-8">
-          <Countdown />
+          <Countdown align="start" />
         </div>
         <HomeHeroActions />
       </PageHero>

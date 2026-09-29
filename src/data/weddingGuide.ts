@@ -7,7 +7,7 @@ export type GuideStage = {
   whatHappens: string;
   whyItMatters: string;
   whatGuestsDo: string;
-  icon: "table" | "spark" | "veil" | "canopy" | "ring" | "blessing" | "glass" | "door" | "dance";
+  icon: "table" | "spark" | "veil" | "canopy" | "ring" | "blessing" | "glass" | "door" | "dance" | "shtick";
 };
 
 export const weddingGuide: GuideStage[] = [
@@ -135,5 +135,18 @@ export const weddingGuide: GuideStage[] = [
     whatGuestsDo:
       "Eat, dance, introduce yourself to someone new, and stay as long as you'd like.",
     icon: "dance",
+  },
+  {
+    id: "shtick",
+    number: 10,
+    title: "Shtick",
+    duration: "During the first dance set",
+    whatHappens:
+      "During the first round of dancing, often called Simcha dancing, “shtick” refers to the fun, creative, and sometimes goofy things guests do to entertain the bride and groom while everyone is dancing. This is usually when friends and family bring out props, costumes, signs, choreographed routines, inside jokes, and other playful performances. The shtick happens as part of the high-energy dancing and is meant to add to the excitement and joy of the Simcha.",
+    whyItMatters:
+      "The idea behind it is mesameach chatan v’kallah — bringing joy to the bride and groom — so the shtick is less about putting on a formal performance and more about creating a lively, celebratory atmosphere around them during the Simcha dancing.",
+    whatGuestsDo:
+      "If you have something prepared, bring it out. Examples include funny signs, coordinated dances, costumes, juggling or tricks, themed props, short skits, or personalized jokes connected to the bride and groom. If not, cheer them on — your joy is part of it too.",
+    icon: "shtick",
   },
 ];

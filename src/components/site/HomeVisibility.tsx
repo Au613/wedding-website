@@ -18,20 +18,15 @@ const icons = {
 export function HomeHeroActions() {
   const { isVisible } = useAdmin();
   return (
-    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+    <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
       {isVisible("/guide") ? (
         <Link href="/guide" className={cn(buttonVariants({ size: "lg" }))}>
           View wedding guide
         </Link>
       ) : null}
-      {isVisible("/gallery") ? (
-        <Link href="/gallery" className={cn(buttonVariants({ variant: "secondary", size: "lg" }))}>
-          View the gallery
-        </Link>
-      ) : null}
       {isVisible("/live") ? (
         <Link href="/live" className={cn(buttonVariants({ variant: "secondary", size: "lg" }))}>
-          Live wedding mode
+          Keep up with Wedding
         </Link>
       ) : null}
     </div>
